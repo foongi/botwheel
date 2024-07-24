@@ -19,6 +19,11 @@
         <color rgba="0 0 0 1" />
     </material>
 
+    <material name="red"> 
+        <color rgba="1 0 0 1" />
+    </material>
+
+
     <!-- Base Link--> 
 
     <link name="base_link">
@@ -132,5 +137,10 @@
         </xacro:inertial_sphere>
 
     </link>
+
+    <gazebo reference="caster_wheel">
+        <mu1 value="0.0001"/>
+        <mu2 value="0.0001"/>
+    </gazebo>
 
 </robot>
