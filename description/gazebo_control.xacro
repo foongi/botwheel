@@ -4,6 +4,10 @@
     <gazebo>
         <plugin name="gz::sim::systems::DiffDrive" filename="gz-sim-diff-drive-system">
 
+            <alwaysOn>true</alwaysOn>
+
+
+
             <!-- Wheel info -->
             <left_joint>left_wheel_joint</left_joint>
             <right_joint>right_wheel_joint</right_joint>
@@ -15,16 +19,20 @@
             <max_wheel_torque>200</max_wheel_torque>
             <max_wheel_acceleration>10.0</max_wheel_acceleration>
 
-            <!-- Output -->
-            <odometry_frame>odom</odometry_frame>
-            <robot_base_frame>base_link</robot_base_frame>
-            <odom_publish_frequency>1</odom_publish_frequency>
+            
+            <topic>cmd_vel</topic>
 
-            <publish_odom>true</publish_odom>
+            <!-- Output -->
+            <robotBaseFrame>base_link</robotBaseFrame>
+            
+            
             <odom_publish_frequency>1</odom_publish_frequency>
+            <publish_odom>true</publish_odom>
+
             <publish_odom_tf>true</publish_odom_tf>
             <publish_wheel_tf>true</publish_wheel_tf>
-            <topic>cmd_vel</topic>
+
+
 
         </plugin>
 
@@ -69,6 +77,26 @@
             </output>
         </plugin>
 
+        <plugin
+            filename="gz-sim-joint-state-publisher-system"
+            name="gz::sim::systems::JointStatePublisher">
+        </plugin>
+
+        <plugin
+            filename="gz-sim-pose-publisher-system"
+            name="gz::sim::systems::PosePublisher">
+            <!-- <publish_link_pose>true</publish_link_pose> -->
+            <!-- <use_pose_vector_msg>true</use_pose_vector_msg> -->
+            <static_publisher>true</static_publisher>
+            <static_update_frequency>1</static_update_frequency>
+        </plugin>
+
+        <plugin
+            filename="gz-sim-odometry-publisher-system"
+            name="gz::sim::systems::OdometryPublisher">
+            <odom_frame>odom</odom_frame>
+            <robot_base_frame>botwheel</robot_base_frame>
+        </plugin>
 
     </gazebo>
 

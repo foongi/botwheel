@@ -1,0 +1,381 @@
+<sdf version='1.11'>
+  <model name='robot'>
+    <link name='botwheel'>
+      <inertial>
+        <pose>-0.089285714285714288 0 0.054047619047619053 0 0 0</pose>
+        <mass>1.05</mass>
+        <inertia>
+          <ixx>0.01350925595238095</ixx>
+          <ixy>0</ixy>
+          <ixz>-0.00058821428571428479</ixz>
+          <iyy>0.014536011904761909</iyy>
+          <iyz>0</iyz>
+          <izz>0.02150717261904762</izz>
+        </inertia>
+      </inertial>
+      <collision name='botwheel_fixed_joint_lump__chassis_collision'>
+        <pose>-0.099999999999999992 0 0.050000000000000003 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.29999999999999999 0.41499999999999998 0.10000000000000001</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='botwheel_fixed_joint_lump__caster_wheel_collision_1'>
+        <pose>-0.25 0 0 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.080000000000000002</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.0001</mu>
+              <mu2>0.0001</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='botwheel_fixed_joint_lump__caster_wheel2_collision_2'>
+        <pose>0.080000000000000002 0 0 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.080000000000000002</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.0001</mu>
+              <mu2>0.0001</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='botwheel_fixed_joint_lump__laser_frame_collision_3'>
+        <pose>-0.044999999999999998 0 0.14499999999999999 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.044999999999999998</length>
+            <radius>0.080000000000000002</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='botwheel_fixed_joint_lump__chassis_visual'>
+        <pose>-0.099999999999999992 0 0.050000000000000003 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.29999999999999999 0.41499999999999998 0.10000000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='botwheel_fixed_joint_lump__camera_link_visual_1'>
+        <pose>0.055 0 0.10000000000000001 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.029999999999999999 0.029999999999999999</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+          <diffuse>1 0 0 1</diffuse>
+          <ambient>1 0 0 1</ambient>
+        </material>
+      </visual>
+      <visual name='botwheel_fixed_joint_lump__caster_wheel_visual_2'>
+        <pose>-0.25 0 0 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.080000000000000002</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 1 1</diffuse>
+          <ambient>0.25 0.25 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='botwheel_fixed_joint_lump__caster_wheel2_visual_3'>
+        <pose>0.080000000000000002 0 0 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.080000000000000002</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <diffuse>0.25 0.25 1 1</diffuse>
+          <ambient>0.25 0.25 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='botwheel_fixed_joint_lump__laser_frame_visual_4'>
+        <pose>-0.044999999999999998 0 0.14499999999999999 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.044999999999999998</length>
+            <radius>0.050000000000000003</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+          <diffuse>1 0 0 1</diffuse>
+          <ambient>1 0 0 1</ambient>
+        </material>
+      </visual>
+      <sensor name='rgbd_camera' type='rgbd_camera'>
+        <visualize>true</visualize>
+        <update_rate>30</update_rate>
+        <enable_metrics>true</enable_metrics>
+        <camera>
+          <horizontal_fov>1.089</horizontal_fov>
+          <image>
+            <format>R8G8B8</format>
+            <width>640</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.050000000000000003</near>
+            <far>8</far>
+          </clip>
+        </camera>
+        <topic>rgbd_camera</topic>
+        <pose>0.055 0 0.10000000000000001 0 0 0</pose>
+      </sensor>
+      <sensor name='laser' type='gpu_lidar'>
+        <topic>lidar</topic>
+        <visualize>true</visualize>
+        <update_rate>10</update_rate>
+        <always_on>true</always_on>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>360</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.1400000000000001</min_angle>
+              <max_angle>3.1400000000000001</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.29999999999999999</min>
+            <max>12</max>
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+        <pose>-0.044999999999999998 0 0.14499999999999999 0 0 0</pose>
+      </sensor>
+    </link>
+    <joint name='left_wheel_joint' type='revolute'>
+      <pose relative_to='botwheel'>0 0.24249999999999999 0 -1.5707963267948959 0 0</pose>
+      <parent>botwheel</parent>
+      <child>left_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_wheel'>
+      <pose relative_to='left_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.14999999999999999</mass>
+        <inertia>
+          <ixx>0.00011375</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00011375</iyy>
+          <iyz>0</iyz>
+          <izz>0.0001875</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_wheel_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.044999999999999998</length>
+            <radius>0.080000000000000002</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='left_wheel_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.044999999999999998</length>
+            <radius>0.080000000000000002</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+          <ambient>0 0 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='right_wheel_joint' type='revolute'>
+      <pose relative_to='botwheel'>0 -0.24249999999999999 0 1.5707963267948959 0 0</pose>
+      <parent>botwheel</parent>
+      <child>right_wheel</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_wheel'>
+      <pose relative_to='right_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.14999999999999999</mass>
+        <inertia>
+          <ixx>0.00011375</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00011375</iyy>
+          <iyz>0</iyz>
+          <izz>0.0001875</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_wheel_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.044999999999999998</length>
+            <radius>0.080000000000000002</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='right_wheel_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.044999999999999998</length>
+            <radius>0.080000000000000002</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+          <ambient>0 0 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <plugin name='gz::sim::systems::DiffDrive' filename='gz-sim-diff-drive-system'>
+      <alwaysOn>true</alwaysOn>
+      <left_joint>left_wheel_joint</left_joint>
+      <right_joint>right_wheel_joint</right_joint>
+      <wheel_separation>0.4850</wheel_separation>
+      <wheel_diameter>0.1</wheel_diameter>
+      <max_wheel_torque>200</max_wheel_torque>
+      <max_wheel_acceleration>10.0</max_wheel_acceleration>
+      <topic>cmd_vel</topic>
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <odom_publish_frequency>1</odom_publish_frequency>
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>true</publish_odom_tf>
+      <publish_wheel_tf>true</publish_wheel_tf>
+    </plugin>
+    <plugin name='gz::sim::systems::TriggeredPublisher' filename='gz-sim-triggered-publisher-system'>
+      <input topic='/keyboard/keypress' type='gz.msgs.Int32'>
+        <match field='data'>16777235</match>
+      </input>
+      <output topic='/cmd_vel' type='gz.msgs.Twist'>linear: {x: 3}, angular: {z: 0.0}</output>
+    </plugin>
+    <plugin name='gz::sim::systems::TriggeredPublisher' filename='gz-sim-triggered-publisher-system'>
+      <input topic='/keyboard/keypress' type='gz.msgs.Int32'>
+        <match field='data'>16777237</match>
+      </input>
+      <output topic='/cmd_vel' type='gz.msgs.Twist'>linear: {x: -3}, angular: {z: 0.0}</output>
+    </plugin>
+    <plugin name='gz::sim::systems::TriggeredPublisher' filename='gz-sim-triggered-publisher-system'>
+      <input topic='/keyboard/keypress' type='gz.msgs.Int32'>
+        <match field='data'>16777234</match>
+      </input>
+      <output topic='/cmd_vel' type='gz.msgs.Twist'>linear: {x: 0.0}, angular: {z: 5}</output>
+    </plugin>
+    <plugin name='gz::sim::systems::TriggeredPublisher' filename='gz-sim-triggered-publisher-system'>
+      <input topic='/keyboard/keypress' type='gz.msgs.Int32'>
+        <match field='data'>16777236</match>
+      </input>
+      <output topic='/cmd_vel' type='gz.msgs.Twist'>linear: {x: 0.0}, angular: {z: -5}</output>
+    </plugin>
+    <plugin name='gz::sim::systems::JointStatePublisher' filename='gz-sim-joint-state-publisher-system'/>
+    <plugin name='gz::sim::systems::PosePublisher' filename='gz-sim-pose-publisher-system'>
+      <static_publisher>true</static_publisher>
+      <static_update_frequency>1</static_update_frequency>
+    </plugin>
+    <plugin name='gz::sim::systems::OdometryPublisher' filename='gz-sim-odometry-publisher-system'>
+      <odom_frame>odom</odom_frame>
+      <robot_base_frame>botwheel</robot_base_frame>
+    </plugin>
+    <frame name='camera_optical_joint' attached_to='camera_link'>
+      <pose>0 0 0 -1.5707963267948959 -5.5511151231257827e-17 -1.5707963267948959</pose>
+    </frame>
+    <frame name='camera_link_optical' attached_to='camera_optical_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='camera_joint' attached_to='chassis'>
+      <pose>0.0050000000000000001 0 0.10000000000000001 0 0 0</pose>
+    </frame>
+    <frame name='camera_link' attached_to='camera_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='caster_wheel_joint' attached_to='chassis'>
+      <pose>-0.29999999999999999 0 0 0 0 0</pose>
+    </frame>
+    <frame name='caster_wheel' attached_to='caster_wheel_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='caster_wheel_joint2' attached_to='chassis'>
+      <pose>0.029999999999999999 0 0 0 0 0</pose>
+    </frame>
+    <frame name='caster_wheel2' attached_to='caster_wheel_joint2'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='laser_joint' attached_to='chassis'>
+      <pose>-0.095000000000000001 0 0.14499999999999999 0 0 0</pose>
+    </frame>
+    <frame name='laser_frame' attached_to='laser_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='chassis_joint' attached_to='botwheel'>
+      <pose>0.050000000000000003 0 0 0 0 0</pose>
+    </frame>
+    <frame name='chassis' attached_to='chassis_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+  </model>
+</sdf>

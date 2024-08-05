@@ -1,0 +1,4 @@
+source;share/botwheel/local_setup.bash
+source;share/botwheel/local_setup.dsv
+source;share/botwheel/local_setup.sh
+source;share/botwheel/local_setup.zsh
