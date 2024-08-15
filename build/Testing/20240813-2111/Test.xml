@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Site BuildName="(empty)"
-	BuildStamp="20240805-0510-Experimental"
+	BuildStamp="20240813-2111-Experimental"
 	Name="ethanfoong-ROG-Zephyrus-G15-GA503QS-GA503QS"
 	Generator="ctest-3.28.3"
 	CompilerName="/usr/bin/c++"
 	CompilerVersion="13.2.0"
 	OSName="Linux"
 	Hostname="ethanfoong-ROG-Zephyrus-G15-GA503QS-GA503QS"
-	OSRelease="6.8.0-39-generic"
-	OSVersion="#39-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul  5 21:49:14 UTC 2024"
+	OSRelease="6.8.0-40-generic"
+	OSVersion="#40-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul  5 10:34:03 UTC 2024"
 	OSPlatform="x86_64"
 	Is64Bits="1"
 	VendorString="AuthenticAMD"
@@ -21,14 +21,14 @@
 	TotalVirtualMemory="4095"
 	TotalPhysicalMemory="15389"
 	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="3293.75"
+	ProcessorClockFrequency="4058.69"
 	>
 	<Testing>
-		<StartDateTime>Aug 05 15:02 PDT</StartDateTime>
-		<StartTestTime>1722895336</StartTestTime>
+		<StartDateTime>Aug 13 16:08 PDT</StartDateTime>
+		<StartTestTime>1723590533</StartTestTime>
 		<TestList/>
-		<EndDateTime>Aug 05 15:02 PDT</EndDateTime>
-		<EndTestTime>1722895336</EndTestTime>
+		<EndDateTime>Aug 13 16:08 PDT</EndDateTime>
+		<EndTestTime>1723590533</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

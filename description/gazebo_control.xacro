@@ -43,7 +43,7 @@
             <match field="data">16777235</match>
             </input>
             <output type="gz.msgs.Twist" topic="/cmd_vel">
-            linear: {x: 3}, angular: {z: 0.0}
+            linear: {x: 5}, angular: {z: 0.0}
             </output>
         </plugin>
 
@@ -53,7 +53,7 @@
                 <match field="data">16777237</match>
             </input>
             <output type="gz.msgs.Twist" topic="/cmd_vel">
-                linear: {x: -3}, angular: {z: 0.0}
+                linear: {x: -5}, angular: {z: 0.0}
             </output>
         </plugin>
 
