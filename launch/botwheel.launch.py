@@ -1,3 +1,17 @@
+# Copyright 2020 ros2_control Development Team
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 #!/usr/bin/env python3
 
 import os
@@ -18,19 +32,8 @@ from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, 
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
-def generate_launch_description():
-    channel_type =  LaunchConfiguration('channel_type', default='serial')
-    serial_port = LaunchConfiguration('serial_port', default='/dev/rplidar')
-    serial_baudrate = LaunchConfiguration('serial_baudrate', default='256000') #for A3 is 256000
-    frame_id = LaunchConfiguration('frame_id', default='laser')
-    inverted = LaunchConfiguration('inverted', default='false')
-    angle_compensate = LaunchConfiguration('angle_compensate', default='true')
-    scan_mode = LaunchConfiguration('scan_mode', default='Sensitivity')
 
-    rviz_config_dir = os.path.join(
-            get_package_share_directory('sllidar_ros2'),
-            'rviz',
-            'sllidar_ros2.rviz')
+def generate_launch_description():
     # Declare arguments
     declared_arguments = []
 #    declared_arguments.append(
@@ -58,7 +61,7 @@ def generate_launch_description():
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
             PathJoinSubstitution(
-                [FindPackageShare("odrive_botwheel_explorer"), "urdf", "diffbot.urdf.xacro"]
+                [FindPackageShare("botwheel"), "description", "botwheel.urdf.xacro"]
             ),
 #            " ",
 #            "use_mock_hardware:=",
@@ -69,9 +72,9 @@ def generate_launch_description():
 
     robot_controllers = PathJoinSubstitution(
         [
-            FindPackageShare("odrive_botwheel_explorer"),
+            FindPackageShare("botwheel"),
             "config",
-            "diffbot_controllers.yaml",
+            "botwheel_controllers.yaml",
         ]
     )
 #    rviz_config_file = PathJoinSubstitution(
@@ -141,10 +144,24 @@ def generate_launch_description():
         delay_robot_controller_spawner_after_joint_state_broadcaster_spawner,
     ]
 
-    return LaunchDescription([
-        declared_arguments,
-        nodes,
-        DeclareLaunchArgument(
+
+
+    channel_type =  LaunchConfiguration('channel_type', default='serial')
+    serial_port = LaunchConfiguration('serial_port', default='/dev/ttyUSB0')
+    serial_baudrate = LaunchConfiguration('serial_baudrate', default='256000') #for A3 is 256000
+    frame_id = LaunchConfiguration('frame_id', default='laser')
+    inverted = LaunchConfiguration('inverted', default='false')
+    angle_compensate = LaunchConfiguration('angle_compensate', default='true')
+    scan_mode = LaunchConfiguration('scan_mode', default='Sensitivity')
+
+
+
+
+
+    return LaunchDescription(declared_arguments + nodes + [
+        
+        
+         DeclareLaunchArgument(
             'channel_type',
             default_value=channel_type,
             description='Specifying channel type of lidar'),
@@ -191,4 +208,6 @@ def generate_launch_description():
                          'angle_compensate': angle_compensate, 
                          'scan_mode': scan_mode}],
             output='screen'),
-    ])
+
+        ])
+                             
