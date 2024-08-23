@@ -12,9 +12,21 @@ def generate_launch_description():
     publish_stamped_twist = launch.substitutions.LaunchConfiguration('publish_stamped_twist')
     config_filepath = launch.substitutions.LaunchConfiguration('config_filepath')
 
+
+    package_name = get_package_share_directory('botwheel')
+
+    # RViz
+    rviz = Node(
+       package='rviz2',
+       executable='rviz2',
+       arguments=['-d', os.path.join(package_name, 'rviz', 'botwheel_physical.rviz')],
+    )
+
+
 # And add to launch description at the bottom
 
     return launch.LaunchDescription([
+        rviz,
         launch.actions.DeclareLaunchArgument('joy_vel', default_value='cmd_vel'),
         launch.actions.DeclareLaunchArgument('joy_config', default_value='xbox'),
         launch.actions.DeclareLaunchArgument('joy_dev', default_value='/dev/input/js0'),
