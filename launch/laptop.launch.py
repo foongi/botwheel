@@ -26,7 +26,7 @@ def generate_launch_description():
 # And add to launch description at the bottom
 
     return launch.LaunchDescription([
-        rviz,
+        
         launch.actions.DeclareLaunchArgument('joy_vel', default_value='cmd_vel'),
         launch.actions.DeclareLaunchArgument('joy_config', default_value='xbox'),
         launch.actions.DeclareLaunchArgument('joy_dev', default_value='/dev/input/js0'),
@@ -49,4 +49,5 @@ def generate_launch_description():
             parameters=[config_filepath, {'publish_stamped_twist': publish_stamped_twist}],
             remappings={('/cmd_vel', '/botwheel_explorer/cmd_vel')},
             ),
+        rviz,
     ])
