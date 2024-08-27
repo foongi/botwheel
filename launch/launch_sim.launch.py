@@ -52,8 +52,9 @@ def generate_launch_description():
     gazebo = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')]),
-                    launch_arguments={'gz_args': '-r /home/ethanfoong/gz_worlds/obstacles.sdf',
-                                      'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_path}.items(), 
+                    launch_arguments={'gz_args': '-r /home/ethanfoong/gz_worlds/obstacles.sdf'
+                                      #'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_path
+                                      }.items(), 
              )
 
     # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
@@ -140,7 +141,6 @@ def generate_launch_description():
         
         rsp,
         bridge,
-        
         spawn_entity,
         
 
