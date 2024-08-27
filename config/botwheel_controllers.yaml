@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 10  # Hz
+    update_rate: 100  # Hz
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
@@ -13,7 +13,7 @@ botwheel_explorer:
     left_wheel_names: ["left_wheel_joint"]
     right_wheel_names: ["right_wheel_joint"]
 
-    wheel_separation: 0.419
+    wheel_separation: 0.485
     wheel_radius: 0.0855
 
     wheel_separation_multiplier: 1.0
@@ -30,17 +30,17 @@ botwheel_explorer:
     enable_odom_tf: true
 
     cmd_vel_timeout: 0.5
-    #publish_limited_velocity: true
-    #velocity_rolling_window_size: 10
+    publish_limited_velocity: true
+    # velocity_rolling_window_size: 10
 
     # Velocity and acceleration limits
     # Whenever a min_* is unspecified, default to -max_*
     linear.x.has_velocity_limits: true
     linear.x.has_acceleration_limits: true
     linear.x.has_jerk_limits: false
-    linear.x.max_velocity: 0.8
-    linear.x.min_velocity: -0.8
-    linear.x.max_acceleration: 0.8
+    linear.x.max_velocity: 1.0
+    linear.x.min_velocity: -1.0
+    linear.x.max_acceleration: 1.0
     linear.x.max_jerk: 0.0
     linear.x.min_jerk: 0.0
 
